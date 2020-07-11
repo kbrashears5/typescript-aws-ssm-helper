@@ -5,7 +5,7 @@
 <b>Typescript helper functions for AWS SSM service</b>
     
 [![Build Status](https://dev.azure.com/kbrashears5/github/_apis/build/status/kbrashears5.typescript-aws-ssm-helper?branchName=master)](https://dev.azure.com/kbrashears5/github/_build/latest?definitionId=18&branchName=master)
-[![Tessm](https://img.shields.io/azure-devops/tests/kbrashears5/github/18)](https://img.shields.io/azure-devops/tessm/kbrashears5/github/18)
+[![Tests](https://img.shields.io/azure-devops/tests/kbrashears5/github/18)](https://img.shields.io/azure-devops/tests/kbrashears5/github/18)
 [![Code Coverage](https://img.shields.io/azure-devops/coverage/kbrashears5/github/18)](https://img.shields.io/azure-devops/coverage/kbrashears5/github/18)
 
 [![NPM Version](https://img.shields.io/npm/v/typescript-aws-ssm-helper)](https://img.shields.io/npm/v/typescript-aws-ssm-helper)
