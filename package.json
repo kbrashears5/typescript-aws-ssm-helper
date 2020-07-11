@@ -48,7 +48,10 @@
             "jest-junit"
         ],
         "rootDir": "src",
-        "testEnvironment": "node"
+        "testEnvironment": "node",
+        "coverageReporters": [
+            "cobertura"
+        ]
     },
     "scripts": {
         "prebuild": "rimraf ./lib",
@@ -56,7 +59,7 @@
         "clean": "rimraf ./lib",
         "prepublishOnly": "npm run build",
         "postpublish": "npm run clean",
-        "test": "jest --ci",
+        "test": "jest --ci --coverage",
         "update": "run-s update:*",
         "update:helper_functions": "npm i typescript-helper-functions@latest",
         "update:ilogger": "npm i typescript-ilogger@latest",
