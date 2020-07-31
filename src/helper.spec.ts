@@ -5,11 +5,9 @@ import { TestingValues } from './test-values';
 
 const logger = new Logger(LogLevel.Off);
 const mockerResolves = new SSMMock(false);
-const ssmHelperMockResolves = new SSMHelper(logger,
-    mockerResolves.Mock);
+const ssmHelperMockResolves = new SSMHelper(logger, mockerResolves.Mock);
 const mockerRejects = new SSMMock(true);
-const ssmHelperMockRejects = new SSMHelper(logger,
-    mockerRejects.Mock);
+const ssmHelperMockRejects = new SSMHelper(logger, mockerRejects.Mock);
 const TestValues = new TestingValues();
 
 /**
@@ -104,38 +102,23 @@ describe(`${SSMHelper.name}.${ssmHelperMockResolves.PutParameterAsync.name}`, ()
     const action = `${SSMHelper.name}.${ssmHelperMockResolves.PutParameterAsync.name}`;
 
     test(`${TestValues.ThrowsOnEmpty} name`, () => {
-        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.EmptyString,
-            TestValues.StringValue,
-            TestValues.Type,
-            TestValues.Description);
+        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.EmptyString, TestValues.StringValue, TestValues.Type, TestValues.Description);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} name`);
     });
     test(`${TestValues.ThrowsOnEmpty} value`, () => {
-        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name,
-            TestValues.EmptyString,
-            TestValues.Type,
-            TestValues.Description);
+        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name, TestValues.EmptyString, TestValues.Type, TestValues.Description);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} value`);
     });
     test(`${TestValues.ThrowsOnEmpty} type`, () => {
-        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name,
-            TestValues.StringValue,
-            TestValues.EmptyString,
-            TestValues.Description);
+        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name, TestValues.StringValue, TestValues.EmptyString, TestValues.Description);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} type`);
     });
     test(TestValues.InvalidTest, () => {
-        const actual = ssmHelperMockRejects.PutParameterAsync(TestValues.Name,
-            TestValues.StringValue,
-            TestValues.Type,
-            TestValues.Description);
+        const actual = ssmHelperMockRejects.PutParameterAsync(TestValues.Name, TestValues.StringValue, TestValues.Type, TestValues.Description);
         return expect(actual).rejects.toThrow(TestValues.AWSError);
     });
     test(TestValues.ValidTest, () => {
-        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name,
-            TestValues.StringValue,
-            TestValues.Type,
-            TestValues.Description);
+        const actual = ssmHelperMockResolves.PutParameterAsync(TestValues.Name, TestValues.StringValue, TestValues.Type, TestValues.Description);
         return expect(actual).resolves.toEqual(mockerResolves.PutParameterResult);
     });
 });
@@ -148,33 +131,23 @@ describe(`${SSMHelper.name}.${ssmHelperMockResolves.SendCommandAsync.name}`, () 
     const action = `${SSMHelper.name}.${ssmHelperMockResolves.SendCommandAsync.name}`;
 
     test(`${TestValues.ThrowsOnEmpty} documentName`, () => {
-        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.EmptyString,
-            TestValues.Parameters,
-            [TestValues.Id]);
+        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.EmptyString, TestValues.Parameters, [TestValues.Id]);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} documentName`);
     });
     test(`${TestValues.ThrowsOnEmpty} parameters`, () => {
-        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name,
-            TestValues.EmptyObject,
-            [TestValues.Id]);
+        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name, TestValues.EmptyObject, [TestValues.Id]);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} parameters`);
     });
     test(`${TestValues.ThrowsOnEmpty} instanceIds`, () => {
-        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name,
-            TestValues.Parameters,
-            TestValues.EmptyArray);
+        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name, TestValues.Parameters, TestValues.EmptyArray);
         return expect(actual).rejects.toThrow(`[${action}]-${TestValues.MustSupply} at least one instanceId`);
     });
     test(TestValues.InvalidTest, () => {
-        const actual = ssmHelperMockRejects.SendCommandAsync(TestValues.Name,
-            TestValues.Parameters,
-            [TestValues.Id]);
+        const actual = ssmHelperMockRejects.SendCommandAsync(TestValues.Name, TestValues.Parameters, [TestValues.Id]);
         return expect(actual).rejects.toThrow(TestValues.AWSError);
     });
     test(TestValues.ValidTest, () => {
-        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name,
-            TestValues.Parameters,
-            [TestValues.Id]);
+        const actual = ssmHelperMockResolves.SendCommandAsync(TestValues.Name, TestValues.Parameters, [TestValues.Id]);
         return expect(actual).resolves.toEqual(mockerResolves.SendCommandResult);
     });
 });
