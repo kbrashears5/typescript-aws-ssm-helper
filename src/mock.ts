@@ -1,7 +1,5 @@
 import { BaseMock } from 'typescript-helper-functions';
-
-// tslint:disable-next-line: no-var-requires
-const AWS = require('aws-sdk');
+import * as SSM from '@aws-sdk/client-ssm';
 
 /**
  * SSM Mock class
@@ -9,34 +7,34 @@ const AWS = require('aws-sdk');
 export class SSMMock extends BaseMock {
 
     /**
-     * Mocks an AWS.SSM.CancelCommandResult response
+     * Mocks an SSM.CancelCommandResult response
      */
-    public CancelCommandResult: AWS.SSM.CancelCommandResult = {};
+    public CancelCommandResult: SSM.CancelCommandResult = {};
 
     /**
-     * Mocks an AWS.SSM.DeleteParameterResult response
+     * Mocks an SSM.DeleteParameterResult response
      */
-    public DeleteParameterResult: AWS.SSM.DeleteParameterResult = {};
+    public DeleteParameterResult: SSM.DeleteParameterResult = {};
 
     /**
-     * Mocks an AWS.SSM.GetParameterResult response
+     * Mocks an SSM.GetParameterResult response
      */
-    public GetParameterResult: AWS.SSM.GetParameterResult = {};
+    public GetParameterResult: SSM.GetParameterResult = {};
 
     /**
-     * Mocks an AWS.SSM.GetParametersByPathResult response
+     * Mocks an SSM.GetParametersByPathResult response
      */
-    public GetParametersByPathResult: AWS.SSM.GetParametersByPathResult = {};
+    public GetParametersByPathResult: SSM.GetParametersByPathResult = {};
 
     /**
-     * Mocks an AWS.SSM.PutParameterResult response
+     * Mocks an SSM.PutParameterResult response
      */
-    public PutParameterResult: AWS.SSM.PutParameterResult = {};
+    public PutParameterResult: SSM.PutParameterResult = {};
 
     /**
-     * Mocks an AWS.SSM.SendCommandResult response
+     * Mocks an SSM.SendCommandResult response
      */
-    public SendCommandResult: AWS.SSM.SendCommandResult = {};
+    public SendCommandResult: SSM.SendCommandResult = {};
 
     /**
      * Create the SSM mock
@@ -51,7 +49,7 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.CancelCommandResult>(this.CancelCommandResult);
+                        Promise.resolve<SSM.CancelCommandResult>(this.CancelCommandResult);
                 }),
             },
             // delete parameter response
@@ -59,7 +57,7 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.DeleteParameterResult>(this.DeleteParameterResult);
+                        Promise.resolve<SSM.DeleteParameterResult>(this.DeleteParameterResult);
                 }),
             },
             // get parameter response
@@ -67,7 +65,7 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.GetParameterResult>(this.GetParameterResult);
+                        Promise.resolve<SSM.GetParameterResult>(this.GetParameterResult);
                 }),
             },
             // get parameters by path response
@@ -75,7 +73,7 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.GetParametersByPathResult>(this.GetParametersByPathResult);
+                        Promise.resolve<SSM.GetParametersByPathResult>(this.GetParametersByPathResult);
                 }),
             },
             // put parameter response
@@ -83,7 +81,7 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.PutParameterResult>(this.PutParameterResult);
+                        Promise.resolve<SSM.PutParameterResult>(this.PutParameterResult);
                 }),
             },
              // send command response
@@ -91,13 +89,15 @@ export class SSMMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.SSM.SendCommandResult>(this.SendCommandResult);
+                        Promise.resolve<SSM.SendCommandResult>(this.SendCommandResult);
                 }),
             },
         };
 
+        const options = {} as SSM.SSMClientConfig;
+
         // create the functions
-        let functions = new AWS.SSM();
+        let functions = new SSM.SSM(options);
         functions = {
             cancelCommand: () => awsResponses.cancelCommand,
             deleteParameter: () => awsResponses.deleteParameter,
