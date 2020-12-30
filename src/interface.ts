@@ -5,12 +5,6 @@ import { Parameters } from './any';
  * SSM Helper
  */
 export interface ISSMHelper {
-
-    /**
-     * AWS Repository for SSM
-     */
-    Repository: SSM.SSM;
-
     /**
      * Cancel document command
      * @param commandId {string} Command id to cancel

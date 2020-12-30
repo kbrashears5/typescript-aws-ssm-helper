@@ -12,7 +12,7 @@ export class SSMHelper extends BaseClass implements ISSMHelper {
     /**
      * AWS Repository for SSM
      */
-    public Repository: SSM.SSM;
+    private Repository: SSM.SSM;
 
     /**
      * Initializes new instance of SSMHelper
