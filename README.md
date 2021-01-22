@@ -44,3 +44,6 @@ const helper = new SSMHelper(logger,
 
 const response = await helper.GetParametersByPathAsync('path');
 ```
+
+## Notes
+If no options are supplied, will default to `us-east-1` as the region
