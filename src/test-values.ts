@@ -1,3 +1,5 @@
+import { Parameters } from './any';
+
 /**
  * Test values
  */
@@ -23,5 +25,5 @@ export class TestingValues {
     public StringValue: string = 'value';
 
     // objects
-    public Parameters: AWS.SSM.Parameters = { Parameter: [this.StringValue] };
+    public Parameters: Parameters = { Parameter: [this.StringValue] };
 }
