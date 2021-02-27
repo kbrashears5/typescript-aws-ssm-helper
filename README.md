@@ -10,15 +10,19 @@
 
 [![NPM Version](https://img.shields.io/npm/v/typescript-aws-ssm-helper)](https://img.shields.io/npm/v/typescript-aws-ssm-helper)
 [![Downloads](https://img.shields.io/npm/dt/typescript-aws-ssm-helper)](https://img.shields.io/npm/dt/typescript-aws-ssm-helper)
+
 </div>
 
 ## Install
+
 ```
 npm install typescript-aws-ssm-helper@latest
 ```
 
 ## Usage
+
 ### Default - running in Lambda in your own account
+
 ```typescript
 const logger = new Logger(LogLevel.Trace);
 
@@ -28,22 +32,23 @@ const response = await helper.GetParametersByPathAsync('path');
 ```
 
 ### Running in separate account or not in Lambda
+
 ```typescript
 const logger = new Logger(LogLevel.Trace);
 
 const options: AWS.SSM.ClientConfiguration = {
-    accessKeyId: '{access_key}',
-    secretAccessKey: '{secret_key}',
-    region: 'us-east-1',
+  accessKeyId: '{access_key}',
+  secretAccessKey: '{secret_key}',
+  region: 'us-east-1',
 };
 
 const repository = new AWS.SSM(options);
 
-const helper = new SSMHelper(logger,
-    repository);
+const helper = new SSMHelper(logger, repository);
 
 const response = await helper.GetParametersByPathAsync('path');
 ```
 
 ## Notes
+
 If no options are supplied, will default to `us-east-1` as the region
