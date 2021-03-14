@@ -34,15 +34,17 @@ const response = await helper.GetParametersByPathAsync('path');
 ### Running in separate account or not in Lambda
 
 ```typescript
+import * as SSM from '@aws-sdk/client-ssm';
+
 const logger = new Logger(LogLevel.Trace);
 
-const options: AWS.SSM.ClientConfiguration = {
+const options: SSM.SSMClientConfig = {
   accessKeyId: '{access_key}',
   secretAccessKey: '{secret_key}',
   region: 'us-east-1',
 };
 
-const repository = new AWS.SSM(options);
+const repository = new SSM.SSM(options);
 
 const helper = new SSMHelper(logger, repository);
 
