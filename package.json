@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-ssm": "~3.16.0",
-    "typescript-helper-functions": "~1.0.141",
+    "typescript-helper-functions": "~1.0.151",
     "typescript-ilogger": "~1.0.94"
   },
   "devDependencies": {
