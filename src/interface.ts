@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as SSM from '@aws-sdk/client-ssm';
 import { Parameters } from './any';
 

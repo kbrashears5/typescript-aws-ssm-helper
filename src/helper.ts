@@ -14,6 +14,11 @@ export class SSMHelper extends BaseClass implements ISSMHelper {
   private Repository: SSM.SSM;
 
   /**
+   * SSM Client Config
+   */
+  private Options: SSM.SSMClientConfig;
+
+  /**
    * Initializes new instance of SSMHelper
    * @param logger {ILogger} Injected logger
    * @param repository {SSM.SSM} Injected Repository. A new repository will be created if not supplied
@@ -25,10 +30,11 @@ export class SSMHelper extends BaseClass implements ISSMHelper {
     options?: SSM.SSMClientConfig,
   ) {
     super(logger);
-    options = this.ObjectOperations.IsNullOrEmpty(options)
+    this.Options = this.ObjectOperations.IsNullOrEmpty(options)
       ? ({ region: 'us-east-1' } as SSM.SSMClientConfig)
-      : options!;
-    this.Repository = repository || new SSM.SSM(options);
+      : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        options!;
+    this.Repository = repository || new SSM.SSM(this.Options);
   }
 
   /**

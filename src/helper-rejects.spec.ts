@@ -47,7 +47,7 @@ const TestValues = new TestingValues();
  * Test the CancelCommandAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.CancelCommandAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.CancelCommandAsync(TestValues.Id);
     return expect(actual).rejects.toThrow(TestValues.AWSError);
   });
@@ -57,7 +57,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.CancelCommandAsync.name}`, () => {
  * Test the DeleteParameterAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.DeleteParameterAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.DeleteParameterAsync(TestValues.Name);
     return expect(actual).rejects.toThrow(TestValues.AWSError);
   });
@@ -67,7 +67,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.DeleteParameterAsync.name}`, () => {
  * Test the GetParameterAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.GetParameterAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.GetParameterAsync(TestValues.Name);
     return expect(actual).rejects.toThrow(TestValues.AWSError);
   });
@@ -77,7 +77,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.GetParameterAsync.name}`, () => {
  * Test the GetParametersByPathAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.GetParametersByPathAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.GetParametersByPathAsync(TestValues.Path);
     return expect(actual).rejects.toThrow(TestValues.AWSError);
   });
@@ -87,7 +87,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.GetParametersByPathAsync.name}`, () 
  * Test the PutParameterAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.PutParameterAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.PutParameterAsync(
       TestValues.Name,
       TestValues.StringValue,
@@ -102,7 +102,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.PutParameterAsync.name}`, () => {
  * Test the SendCommandAsync method
  */
 describe(`${SSMHelper.name}.${ssmHelperMock.SendCommandAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = ssmHelperMock.SendCommandAsync(
       TestValues.Name,
       TestValues.Parameters,

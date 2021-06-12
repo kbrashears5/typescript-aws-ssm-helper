@@ -66,7 +66,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.CancelCommandAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} commandId`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.CancelCommandAsync(TestValues.Id);
     return expect(actual).resolves.toEqual(cancelCommandResultResponse);
   });
@@ -85,7 +85,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.DeleteParameterAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} name`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.DeleteParameterAsync(TestValues.Name);
     return expect(actual).resolves.toEqual(deleteParameterResultResponse);
   });
@@ -104,7 +104,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.GetParameterAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} name`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.GetParameterAsync(TestValues.Name);
     return expect(actual).resolves.toEqual(getParameterResultResponse);
   });
@@ -125,7 +125,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.GetParametersByPathAsync.name}`, () 
       `[${action}]-${TestValues.MustSupply} path`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.GetParametersByPathAsync(TestValues.Path);
     return expect(actual).resolves.toEqual(getParametersByPathResultResponse);
   });
@@ -171,7 +171,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.PutParameterAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} type`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.PutParameterAsync(
       TestValues.Name,
       TestValues.StringValue,
@@ -219,7 +219,7 @@ describe(`${SSMHelper.name}.${ssmHelperMock.SendCommandAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} at least one instanceId`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = ssmHelperMock.SendCommandAsync(
       TestValues.Name,
       TestValues.Parameters,

@@ -5,25 +5,26 @@ import { Parameters } from './any';
  */
 export class TestingValues {
   // descriptions
-  public AWSError: string = 'AWS Error';
-  public InvalidTest: string = 'returns error from AWS';
-  public MustSupply: string = 'Must supply';
-  public ThrowsOnEmpty: string = 'throws on empty';
-  public ValidTest: string = 'returns valid response from AWS';
+  public AWSError = 'AWS Error';
+  public InvalidTest = 'returns error from AWS';
+  public MustSupply = 'Must supply';
+  public ThrowsOnEmpty = 'throws on empty';
+  public ValidTest = 'returns valid response from AWS';
 
   // empty values
   public EmptyArray = [];
   public EmptyObject = {};
-  public EmptyString: string = '';
+  public EmptyString = '';
 
   // strings
-  public Description: string = 'description';
-  public Name: string = 'name';
-  public Id: string = 'id';
-  public Path: string = 'path';
-  public Type: string = 'type';
-  public StringValue: string = 'value';
+  public Description = 'description';
+  public Name = 'name';
+  public Id = 'id';
+  public Path = 'path';
+  public Type = 'type';
+  public StringValue = 'value';
 
   // objects
+  // eslint-disable-next-line no-invalid-this
   public Parameters: Parameters = { Parameter: [this.StringValue] };
 }
