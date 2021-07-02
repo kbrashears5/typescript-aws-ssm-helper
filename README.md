@@ -5,7 +5,7 @@
 <b>Typescript helper functions for AWS SSM service</b>
 
 [![CI/CD](https://github.com/kbrashears5/typescript-aws-ssm-helper/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/kbrashears5/typescript-aws-ssm-helper/actions/workflows/ci-cd.yml)
-
+[![codecov](https://codecov.io/gh/kbrashears5/typescript-aws-ssm-helper/branch/master/graph/badge.svg?token=5WVHWVKSSS)](https://codecov.io/gh/kbrashears5/typescript-aws-ssm-helper)
 [![NPM Version](https://img.shields.io/npm/v/typescript-aws-ssm-helper)](https://img.shields.io/npm/v/typescript-aws-ssm-helper)
 [![Downloads](https://img.shields.io/npm/dt/typescript-aws-ssm-helper)](https://img.shields.io/npm/dt/typescript-aws-ssm-helper)
 
